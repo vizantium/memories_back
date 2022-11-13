@@ -9,7 +9,7 @@ import auth from "./middleware/auth.js";
 dotenv.config()
 
 const CONNECTION_URL = 'mongodb+srv://vizantium:qwerty2002130814@cluster0.m4ph79g.mongodb.net/?retryWrites=true&w=majority'
-const PORT = process.env.PORT || 4444;
+const PORT = process.env.PORT;
 
 
 mongoose
@@ -35,7 +35,7 @@ app.post('/users/signup', UserController.signup)
 app.get('/posts/:id', PostController.getPost)
 
 
-app.listen(PORT || 4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
     if (err) {
         return console.log(err);
     }
